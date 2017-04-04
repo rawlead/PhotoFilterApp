@@ -5,31 +5,62 @@
     <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>-->
     <!--Import materialize-->
     <!--<link href="/WEB-INF/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
-    <link href="/resources/css/materialize.css" type="text/css" rel="stylesheet"/>
-    <link th:href="@{/resources/css/style.css}" type="text/css" rel="stylesheet"/>
+    <link th:href="@{/resources/css/materialize.css}" href="/resources/css/materialize.css" type="text/css"
+          rel="stylesheet"/>
+    <link th:href="@{/resources/css/style.css}" href="/resources/css/style.css" type="text/css" rel="stylesheet"/>
     <!--Let browser know website is optimized for mobile-->
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
     <title>Title</title>
 </head>
-<body>
-<p class="title indigo-text">File upload</p>
+<body class="amber darken-1">
+<div class="content" >
+    <div class="row container">
 
-<form action="#">
-    <div class="file-field input-field">
-        <div class="btn">
-            <span>Fsle</span>
-            <input type="file"/>
+
+        <div>
+            <h2 class="title  center">Upload a picture</h2>
+            <form method="POST" th:action="@{/upload}" enctype="multipart/form-data" class="left">
+                <div class="file-field input-field">
+                    <div class="btn waves-effect waves-light amber darken-2">
+                        <span>Pick a file to upload</span>
+                        <input type="file" name="file" class="amber darken-2"/>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text"/>
+
+                    </div>
+                    <p th:if="${message}" th:text="${message}"></p>
+                </div>
+
+                <button class="btn waves-effect waves-light left amber darken-2"
+                        name="picture" type="submit">Upload
+                </button>
+
+            </form>
         </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text"/>
+
+
+    </div>
+    <div th:if="${imageIsUploaded}" class="container">
+        <div class="row">
+            <div class="col m6">
+                <img th:src="@{/uploaded}" src="https://unsplash.it/400/300/?random" width="400"
+                     class="materialboxed left">
+            </div>
+
+            <div class="col m6" th:if="${imageIsConverted}">
+                <img th:src="@{/converted}" src="https://unsplash.it/400/300/?random" width="400"
+                     class="materialboxed right">
+            </div>
+        </div>
+        <div class="row">
+            <form method="get" th:action="@{/convert}" class="center">
+                <button class="btn amber darken-3 waves-effect waves-light">Conversion</button>
+            </form>
         </div>
     </div>
-</form>
-
-
-
-
+</div>
 <script type="text/javascript" src="webjars/jquery/3.1.1-1/jquery.min.js"></script>
-<script type="text/javascript" th:src="@{resour}"></script>
+<script type="text/javascript" th:src="@{/resources/js/materialize.js}"></script>
 </body>
 </html>
