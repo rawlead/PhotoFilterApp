@@ -24,6 +24,8 @@ public class HomeController {
     private Path path;
     private Path convertedPath;
 
+    private boolean isGrayScale = true;
+
     @RequestMapping("/")
     public String home(Model model) {
 
@@ -62,7 +64,8 @@ public class HomeController {
 
     @RequestMapping("/convert")
     public String convertImage() {
-        GrayScale.convert(path.toFile());
+        isGrayScale = true;
+        GrayScale.convert(path.toFile(),isGrayScale);
         System.out.println("conversion is done");
 
         String image = path.toString();
@@ -73,6 +76,24 @@ public class HomeController {
 
         return "redirect:/";
     }
+
+    @RequestMapping("/binary")
+    public String binaryImage() {
+        isGrayScale = false;
+        GrayScale.convert(path.toFile(),isGrayScale);
+        System.out.println("conversion is done");
+
+        String image = path.toString();
+        int extension = image.lastIndexOf('.');
+        String convertedImage = image.substring(0, extension)
+                + "-grayscale" + image.substring(extension, image.length());
+        convertedPath = Paths.get(convertedImage);
+
+        return "redirect:/";
+    }
+
+
+
 
     @RequestMapping(value = "/converted")
     public void getConvertedImage(HttpServletResponse response) throws IOException {

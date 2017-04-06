@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GrayScale {
     private static BufferedImage image;
 
-    public static void convert(File input) {
+    public static void convert(File input, boolean grayscale) {
         String name = input.getName();
         name = name.substring(0, name.lastIndexOf('.'));
         String newName = name + "-grayscale";
@@ -27,14 +27,40 @@ public class GrayScale {
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
                     Color c = new Color(image.getRGB(j, i));
-                    int red = (int) (c.getRed() * 0.299);
-                    int green = (int) (c.getGreen() * 0.587);
-                    int blue = (int) (c.getBlue() * 0.114);
 
-                    Color newColor = new Color(
-                            red + green + blue,
-                            red + green + blue,
-                            red + green + blue);
+                    int red = 255;
+                    int green = 255;
+                    int blue = 255;
+
+
+                    Color newColor;
+
+                    if (grayscale) {
+                        red = (int) (c.getRed() * 0.299);
+                        green = (int) (c.getGreen() * 0.587);
+                        blue = (int) (c.getBlue() * 0.114);
+
+                        newColor = new Color(
+                                red + green + blue,
+                                red + green + blue,
+                                red + green + blue);
+                    } else {
+
+                        if ((c.getRed() < 128) || c.getBlue() < 128 || c.getGreen() < 128) {
+                            red = 0;
+                            green = 0;
+                            blue = 0;
+                        }
+
+                        newColor = new Color(red, green, blue);
+                    }
+
+
+//                    Color newColor = new Color(
+//                            red + green + blue,
+//                            red + green + blue,
+//                            red + green + blue);
+//                    Color newColor = new Color(red, green, blue);
                     image.setRGB(j, i, newColor.getRGB());
                 }
             }

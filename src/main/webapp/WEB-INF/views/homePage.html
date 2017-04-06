@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <!--Import Google Icon Font-->
-    <!--<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize-->
     <!--<link href="/WEB-INF/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>-->
     <link th:href="@{/resources/css/materialize.css}" href="/resources/css/materialize.css" type="text/css"
@@ -12,31 +12,33 @@
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
     <title>Title</title>
 </head>
-<body class="amber darken-1">
-<div class="content" >
+<body class="grey darken-3">
+<div class="content">
     <div class="row container">
 
 
         <div>
-            <h2 class="title  center">Upload a picture</h2>
+            <h2 class="title  center amber-text">Upload a picture</h2>
             <form method="POST" th:action="@{/upload}" enctype="multipart/form-data" class="left">
-                <div class="file-field input-field">
+                <div class="file-field input-field row">
                     <div class="btn waves-effect waves-light amber darken-2">
                         <span>Pick a file to upload</span>
+                        <i class="material-icons right">perm_media</i>
                         <input type="file" name="file" class="amber darken-2"/>
                     </div>
                     <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text"/>
-
+                        <input class="file-path validate amber-text" type="text" disabled/>
                     </div>
-                    <p th:if="${message}" th:text="${message}"></p>
+                    <button class="btn waves-effect waves-light amber darken-2 "
+                            name="picture" type="submit">Upload<i class="material-icons right">send</i>
+                    </button>
+
                 </div>
-
-                <button class="btn waves-effect waves-light left amber darken-2"
-                        name="picture" type="submit">Upload
-                </button>
-
             </form>
+            <!--<div class="progress">-->
+                <!--<div class="indeterminate"></div>-->
+            <!--</div>-->
+            <!--<p th:if="${message}" th:text="${message}" class="amber-text left"></p>-->
         </div>
 
 
@@ -44,18 +46,54 @@
     <div th:if="${imageIsUploaded}" class="container">
         <div class="row">
             <div class="col m6">
-                <img th:src="@{/uploaded}" src="https://unsplash.it/400/300/?random" width="400"
-                     class="materialboxed left">
+                <div class="card grey darken-3">
+                    <div class="card-image">
+                        <img th:src="@{/uploaded}" width="400"
+                             class="materialboxed">
+                        <span class="card-title">Original</span>
+                    </div>
+
+                    <div class="card-action amber darken-2">
+                        <a class="white-text" th:href="@{/uploaded}">Open</a>
+                    </div>
+                </div>
             </div>
 
+
+
+
+
+
+
             <div class="col m6" th:if="${imageIsConverted}">
-                <img th:src="@{/converted}" src="https://unsplash.it/400/300/?random" width="400"
-                     class="materialboxed right">
+                <div class="card grey darken-3">
+                    <div class="card-image">
+                        <img th:src="@{/converted}" width="400"
+                             class="materialboxed">
+                        <span class="card-title">Converted</span>
+                    </div>
+
+                    <div class="card-action amber darken-2">
+                        <a class="white-text" th:href="@{/converted}">Open</a>
+                    </div>
+                </div>
+
+
+
+
+
+                <!--<img th:src="@{/converted}" src="https://unsplash.it/400/300/?random" width="400"-->
+                     <!--class="materialboxed right">-->
             </div>
         </div>
         <div class="row">
-            <form method="get" th:action="@{/convert}" class="center">
-                <button class="btn amber darken-3 waves-effect waves-light">Conversion</button>
+            <form method="get" th:action="@{/convert}" class="col">
+                <button class="btn amber darken-3 waves-effect waves-light bottom-sheet">Grayscale
+                    <i class="material-icons right">swap_horiz</i></button>
+            </form>
+            <form method="get" th:action="@{/binary}" class="col">
+                <button class="btn amber darken-3 waves-effect waves-light bottom-sheet">Binary
+                    <i class="material-icons right">swap_horiz</i></button>
             </form>
         </div>
     </div>
