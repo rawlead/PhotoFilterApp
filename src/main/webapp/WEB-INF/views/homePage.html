@@ -18,7 +18,6 @@
 
 
         <div>
-            <h2 class="title  center amber-text">Upload a picture</h2>
             <form method="POST" th:action="@{/upload}" enctype="multipart/form-data" class="left">
                 <div class="file-field input-field row">
                     <div class="btn waves-effect waves-light amber darken-2">
@@ -35,10 +34,6 @@
 
                 </div>
             </form>
-            <!--<div class="progress">-->
-                <!--<div class="indeterminate"></div>-->
-            <!--</div>-->
-            <!--<p th:if="${message}" th:text="${message}" class="amber-text left"></p>-->
         </div>
 
 
@@ -60,11 +55,6 @@
             </div>
 
 
-
-
-
-
-
             <div class="col m6" th:if="${imageIsConverted}">
                 <div class="card grey darken-3">
                     <div class="card-image">
@@ -79,15 +69,12 @@
                 </div>
 
 
-
-
-
                 <!--<img th:src="@{/converted}" src="https://unsplash.it/400/300/?random" width="400"-->
-                     <!--class="materialboxed right">-->
+                <!--class="materialboxed right">-->
             </div>
         </div>
         <div class="row">
-            <form method="get" th:action="@{/convert}" class="col">
+            <form method="get" th:action="@{/grayscale}" class="col">
                 <button class="btn amber darken-3 waves-effect waves-light bottom-sheet">Grayscale
                     <i class="material-icons right">swap_horiz</i></button>
             </form>

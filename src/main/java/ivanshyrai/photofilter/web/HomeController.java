@@ -1,9 +1,9 @@
 package ivanshyrai.photofilter.web;
 
-import ivanshyrai.photofilter.service.GrayScale;
+import ivanshyrai.photofilter.service.ImageConverter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.net.URLConnection;
 import java.nio.file.Files;
@@ -23,17 +22,19 @@ public class HomeController {
     private static String UPLOADED_FOLDER = "/tmp/";
     private Path path;
     private Path convertedPath;
+    private ImageConverter imageConverter;
 
-    private boolean isGrayScale = true;
+    @Autowired
+    public HomeController(ImageConverter imageConverter) {
+        this.imageConverter = imageConverter;
+    }
 
     @RequestMapping("/")
     public String home(Model model) {
-
         if (path != null)
             model.addAttribute("imageIsUploaded", true);
         if (convertedPath != null)
             model.addAttribute("imageIsConverted", true);
-
         return "homePage";
     }
 
@@ -62,37 +63,17 @@ public class HomeController {
         Files.copy(path, response.getOutputStream());
     }
 
-    @RequestMapping("/convert")
+    @RequestMapping("/grayscale")
     public String convertImage() {
-        isGrayScale = true;
-        GrayScale.convert(path.toFile(),isGrayScale);
-        System.out.println("conversion is done");
-
-        String image = path.toString();
-        int extension = image.lastIndexOf('.');
-        String convertedImage = image.substring(0, extension)
-                + "-grayscale" + image.substring(extension, image.length());
-        convertedPath = Paths.get(convertedImage);
-
+        convertedPath = imageConverter.convertToGrayScale(path);
         return "redirect:/";
     }
 
     @RequestMapping("/binary")
     public String binaryImage() {
-        isGrayScale = false;
-        GrayScale.convert(path.toFile(),isGrayScale);
-        System.out.println("conversion is done");
-
-        String image = path.toString();
-        int extension = image.lastIndexOf('.');
-        String convertedImage = image.substring(0, extension)
-                + "-grayscale" + image.substring(extension, image.length());
-        convertedPath = Paths.get(convertedImage);
-
+        convertedPath = imageConverter.convertToBinary(path);
         return "redirect:/";
     }
-
-
 
 
     @RequestMapping(value = "/converted")
