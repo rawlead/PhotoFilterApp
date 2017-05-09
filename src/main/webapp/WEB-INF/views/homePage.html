@@ -9,82 +9,82 @@
           rel="stylesheet"/>
     <link th:href="@{/resources/css/style.css}" href="/resources/css/style.css" type="text/css" rel="stylesheet"/>
     <!--Let browser know website is optimized for mobile-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Title</title>
 </head>
-<body class="grey darken-3">
-<div class="content">
-    <div class="row container">
+    <body class="grey darken-3">
 
-
-        <div>
-            <form method="POST" th:action="@{/upload}" enctype="multipart/form-data" class="left">
-                <div class="file-field input-field row">
-                    <div class="btn waves-effect waves-light amber darken-2">
-                        <span>Pick a file to upload</span>
-                        <i class="material-icons right">perm_media</i>
-                        <input type="file" name="file" class="amber darken-2"/>
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate amber-text" type="text" disabled/>
-                    </div>
-                    <button class="btn waves-effect waves-light amber darken-2 "
-                            name="picture" type="submit">Upload<i class="material-icons right">send</i>
-                    </button>
-
+<div class="row">
+    <div class="col m6 s12">
+        <form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
+            <div class="file-field input-field">
+                <div class="btn waves-effect waves-light amber darken-2">
+                    <span>Upload file (up to 5 mb)</span>
+                    <i class="material-icons right">perm_media</i>
+                    <input type="file" name="file" class="amber darken-2"/>
                 </div>
-            </form>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate amber-text" type="text" disabled/>
+                </div>
+                <button class="btn btn-large waves-effect waves-light amber darken-2 "
+                        name="picture" type="submit">Upload<i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+        <div id="convert_buttons" class="right" th:if="${uploadedImage != null}">
+            <!-- Dropdown Trigger -->
+            <button class='dropdown-button btn' data-activates='convert_dropdown'>
+                CHOOSE OPTION<i class="material-icons right">view_list</i></button>
+            <!-- Dropdown Structure -->
+            <ul id='convert_dropdown' class='dropdown-content grey darken-3'>
+                <li><a th:href="@{/grayscale}">Grayscale</a></li>
+                <li class="divider"></li>
+                <li><a th:href="@{/binary}">Binary</a></li>
+                <li class="divider"></li>
+                <li><a th:href="@{/facedetect}">Face detect</a></li>
+            </ul>
         </div>
-
-
+        <div th:if="${message}" class="error-message clearfix">
+            <p th:text="${message}">Error message</p>
+        </div>
     </div>
-    <div th:if="${imageIsUploaded}" class="container">
-        <div class="row">
-            <div class="col m6">
-                <div class="card grey darken-3">
-                    <div class="card-image">
-                        <img th:src="@{/uploaded}" width="400"
-                             class="materialboxed">
-                        <span class="card-title">Original</span>
-                    </div>
 
-                    <div class="card-action amber darken-2">
-                        <a class="white-text" th:href="@{/uploaded}">Open</a>
-                    </div>
+
+    <div class="col m6 hide-on-med-and-down">
+        <!--<h5 class="amber-text text-darken-2">-->
+            <!--Funkcjonalność:-->
+            <!--<ol>-->
+                <!--<li>Binary</li>-->
+                <!--<li>Grayscale</li>-->
+                <!--<li>Face Recognition</li>-->
+            <!--</ol>-->
+        <!--</h5>-->
+    </div>
+</div>
+
+
+<div th:if="${uploadedImage != null}">
+    <div class="row">
+        <div class="col m6">
+            <div class="card grey darken-3">
+                <div class="card-image">
+                    <img th:src="@{/uploaded}" class="materialboxed responsive-img">
+                    <span class="card-title">Original</span>
                 </div>
-            </div>
-
-
-            <div class="col m6" th:if="${imageIsConverted}">
-                <div class="card grey darken-3">
-                    <div class="card-image">
-                        <img th:src="@{/converted}" width="400"
-                             class="materialboxed">
-                        <span class="card-title">Converted</span>
-                    </div>
-
-                    <div class="card-action amber darken-2">
-                        <a class="white-text" th:href="@{/converted}">Open</a>
-                    </div>
-                </div>
-
-
-                <!--<img th:src="@{/converted}" src="https://unsplash.it/400/300/?random" width="400"-->
-                <!--class="materialboxed right">-->
             </div>
         </div>
-        <div class="row">
-            <form method="get" th:action="@{/grayscale}" class="col">
-                <button class="btn amber darken-3 waves-effect waves-light bottom-sheet">Grayscale
-                    <i class="material-icons right">swap_horiz</i></button>
-            </form>
-            <form method="get" th:action="@{/binary}" class="col">
-                <button class="btn amber darken-3 waves-effect waves-light bottom-sheet">Binary
-                    <i class="material-icons right">swap_horiz</i></button>
-            </form>
+
+        <div class="col m6" th:if="${convertedImage != null}">
+            <div class="card grey darken-3">
+                <div class="card-image">
+                    <img th:src="@{/converted}" class="materialboxed responsive-img">
+                    <span class="card-title">Converted</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 <script type="text/javascript" src="webjars/jquery/3.1.1-1/jquery.min.js"></script>
 <script type="text/javascript" th:src="@{/resources/js/materialize.js}"></script>
 </body>

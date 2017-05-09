@@ -7,3 +7,9 @@ html {
     padding: 0;
 }
 
+/*#convert_buttons {*/
+    /*margin: 0px 0;*/
+/*}*/
+.error-message {
+    color: red;
+}

@@ -32,7 +32,6 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         this.applicationContext = applicationContext;
     }
 
-
     // Bean name must be "multipartResolver", by default Spring uses method name as bean name.
     @Bean
     public MultipartResolver multipartResolver() {
@@ -76,6 +75,4 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         source.setBasename("messages");
         return source;
     }
-
-
 }
