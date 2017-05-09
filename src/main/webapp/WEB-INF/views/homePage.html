@@ -20,21 +20,23 @@
             <div class="file-field input-field">
                 <div class="btn waves-effect waves-light amber darken-2">
                     <span>Upload file (up to 5 mb)</span>
-                    <i class="material-icons right">perm_media</i>
+                    <!--<i class="material-icons right">perm_media</i>-->
                     <input type="file" name="file" class="amber darken-2"/>
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate amber-text" type="text" disabled/>
                 </div>
                 <button class="btn btn-large waves-effect waves-light amber darken-2 "
-                        name="picture" type="submit">Upload<i class="material-icons right">send</i>
+                        name="picture" type="submit">Upload<!--<i class="material-icons right">send</i>-->
                 </button>
             </div>
         </form>
         <div id="convert_buttons" class="right" th:if="${uploadedImage != null}">
             <!-- Dropdown Trigger -->
             <button class='dropdown-button btn' data-activates='convert_dropdown'>
-                CHOOSE OPTION<i class="material-icons right">view_list</i></button>
+                CHOOSE OPTION
+                <!--<i class="material-icons right">view_list</i>-->
+            </button>
             <!-- Dropdown Structure -->
             <ul id='convert_dropdown' class='dropdown-content grey darken-3'>
                 <li><a th:href="@{/grayscale}">Grayscale</a></li>
