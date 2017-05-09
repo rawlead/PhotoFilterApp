@@ -2,103 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d14629c6-20fd-408b-9160-261168c67943" name="Default" comment="add binary picture converter">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Bold.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Bold.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Bold.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Light.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Light.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Light.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Medium.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Medium.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Medium.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Medium.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Thin.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Thin.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Thin.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/fonts/roboto/Roboto-Thin.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT.war" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/config/PhotoFilterWebAppInitializer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/config/PropertiesConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/config/RootConfig$WebPackege.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/config/RootConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/service/ImageService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/service/ImageServiceImpl.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/web/HomeController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/ivanshyrai/photofilter/web/WebConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/attoparser-2.0.2.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/commons-logging-1.2.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.20.0-GA.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/jquery-3.1.1-1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/ognl-3.1.12.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/opencv-2.4.9-4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.6.6.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.6.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/thymeleaf-3.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/thymeleaf-spring4-3.0.3.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/lib/unbescape-1.1.4.RELEASE.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Bold.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Bold.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Bold.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Light.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Light.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Light.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Medium.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Medium.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Medium.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Medium.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Thin.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Thin.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Thin.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/fonts/roboto/Roboto-Thin.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/config/PhotoFilterWebAppInitializer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/config/PropertiesConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/config/RootConfig$WebPackege.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/config/RootConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/service/ImageService.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/service/ImageServiceImpl.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/web/HomeController.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/ivanshyrai/photofilter/web/WebConfig.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/haarcascade_frontalface_alt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/classes/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/WEB-INF/views/homePage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/css/materialize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT/resources/js/materialize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/application.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/haarcascade_frontalface_alt.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/classes/messages.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageConverter.java" afterPath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT.war" afterPath="$PROJECT_DIR$/target/PhotoFilter-1.0-SNAPSHOT.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/WebConfig.java" afterPath="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/WebConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/homePage.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/homePage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/materialize.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/materialize.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -122,11 +29,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="homePage.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="homePage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/homePage.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="98">
               <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="96">
+              <caret line="107" column="29" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="90" lean-forward="false" selection-start-line="0" selection-start-column="90" selection-end-line="0" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -206,11 +133,12 @@
         <option value="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/WebConfig.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/resources/css/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageService.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/web/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/config/PhotoFilterWebAppInitializer.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/homePage.html" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -309,8 +237,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1" />
-    <option name="y" value="22" />
+    <option name="x" value="4" />
+    <option name="y" value="41" />
     <option name="width" value="1276" />
     <option name="height" value="778" />
   </component>
@@ -398,20 +326,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="PhotoFilter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PhotoFilter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PhotoFilter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1227,7 +1141,7 @@
       <workItem from="1492028837774" duration="143000" />
       <workItem from="1494328892233" duration="8684000" />
       <workItem from="1494338812131" duration="3719000" />
-      <workItem from="1494343055945" duration="7105000" />
+      <workItem from="1494343055945" duration="7750000" />
     </task>
     <task id="LOCAL-00001" summary="initial">
       <created>1491333008387</created>
@@ -1254,10 +1168,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67073000" />
+    <option name="totallyTimeSpent" value="67718000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="22" width="1276" height="778" extended-state="0" />
+    <frame x="4" y="41" width="1276" height="778" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1315,14 +1229,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ivanshyrai/photofilter/service/ImageServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1640,14 +1546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="54" column="20" lean-forward="false" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/haarcascade_frontalface_alt.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-117637">
@@ -1705,6 +1603,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="98">
           <caret line="54" column="25" lean-forward="false" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="107" column="29" lean-forward="false" selection-start-line="107" selection-start-column="29" selection-end-line="107" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="90" lean-forward="false" selection-start-line="0" selection-start-column="90" selection-end-line="0" selection-end-column="90" />
           <folding />
         </state>
       </provider>
