@@ -73,23 +73,36 @@ public class HomeController {
         Files.copy(convertedPath, response.getOutputStream());
     }
 
-    @RequestMapping("/grayscale")
-    public String convertImage() {
-        convertedPath = imageService.convertToGrayScale(path);
+//    @RequestMapping("/grayscale")
+//    public String convertImage() {
+//        convertedPath = imageService.convertToGrayScale(path);
+//        return "redirect:/";
+//    }
+//
+//    @RequestMapping("/binary")
+//    public String binaryImage() {
+//        convertedPath = imageService.convertToBinary(path);
+//        return "redirect:/";
+//    }
+//
+//    @RequestMapping("/facedetect")
+//    public String faceDetect() {
+//        convertedPath = imageService.faceDetect(path);
+//        return "redirect:/";
+//    }
+
+
+    @RequestMapping(value = "/convert", method = RequestMethod.POST)
+    public String convert(@RequestParam String option) {
+        if (option.equals("grayscale"))
+            convertedPath = imageService.convertToGrayScale(path);
+        else if (option.equals("binary"))
+            convertedPath = imageService.convertToBinary(path);
+        else if (option.equals("facedetect"))
+            convertedPath = imageService.faceDetect(path);
         return "redirect:/";
     }
 
-    @RequestMapping("/binary")
-    public String binaryImage() {
-        convertedPath = imageService.convertToBinary(path);
-        return "redirect:/";
-    }
-
-    @RequestMapping("/facedetect")
-    public String faceDetect() {
-        convertedPath = imageService.faceDetect(path);
-        return "redirect:/";
-    }
 
     private boolean isImage(MultipartFile file) {
         return file.getContentType().startsWith("image");
