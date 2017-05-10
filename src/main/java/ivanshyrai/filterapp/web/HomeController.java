@@ -1,6 +1,6 @@
-package ivanshyrai.photofilter.web;
+package ivanshyrai.filterapp.web;
 
-import ivanshyrai.photofilter.service.ImageService;
+import ivanshyrai.filterapp.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package ivanshyrai.photofilter.service;
+package ivanshyrai.filterapp.service;
 
 import java.nio.file.Path;
 

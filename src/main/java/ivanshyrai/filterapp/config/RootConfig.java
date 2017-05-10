@@ -1,4 +1,4 @@
-package ivanshyrai.photofilter.config;
+package ivanshyrai.filterapp.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -9,7 +9,7 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 import java.util.regex.Pattern;
 
 @Configuration
-@ComponentScan(basePackages = {"ivanshyrai.photofilter"},
+@ComponentScan(basePackages = {"ivanshyrai.filterapp"},
         excludeFilters = {@Filter(type = FilterType.CUSTOM, value = RootConfig.WebPackege.class)})
 public class RootConfig {
     public static class WebPackege extends RegexPatternTypeFilter {

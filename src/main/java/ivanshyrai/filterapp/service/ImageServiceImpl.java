@@ -1,4 +1,4 @@
-package ivanshyrai.photofilter.service;
+package ivanshyrai.filterapp.service;
 
 import org.opencv.core.*;
 import org.opencv.core.Point;

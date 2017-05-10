@@ -1,4 +1,4 @@
-package ivanshyrai.photofilter.web;
+package ivanshyrai.filterapp.web;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -23,7 +23,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"ivanshyrai.photofilter.web", "ivanshyrai.photofilter.service"})
+@ComponentScan(basePackages = {"ivanshyrai.filterapp.web", "ivanshyrai.filterapp.service"})
 public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;

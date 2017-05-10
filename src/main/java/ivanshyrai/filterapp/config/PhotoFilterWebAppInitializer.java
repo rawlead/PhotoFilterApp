@@ -1,6 +1,6 @@
-package ivanshyrai.photofilter.config;
+package ivanshyrai.filterapp.config;
 
-import ivanshyrai.photofilter.web.WebConfig;
+import ivanshyrai.filterapp.web.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
