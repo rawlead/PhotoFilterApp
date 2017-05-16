@@ -120,10 +120,10 @@ public class ImageServiceImpl implements ImageService {
                     Arrays.sort(R);
                     Arrays.sort(G);
                     Arrays.sort(B);
-                    image.setRGB(i,j,new Color(R[4],G[4],B[4]).getRGB());
+                    image.setRGB(i, j, new Color(R[4], G[4], B[4]).getRGB());
                 }
             }
-            File output = writeImageToFile(input,"median");
+            File output = writeImageToFile(input, "median");
             return Paths.get(output.toString());
 
         } catch (Exception e) {
@@ -136,21 +136,31 @@ public class ImageServiceImpl implements ImageService {
 
     @Override
     public Path linearBlur(File input) {
-        int filterWidth = 3;
-        int filterHeight = 3;
-        float[] filterMatrix = {
-                0.111f, 0.111f, 0.111f,
-                0.111f, 0.111f, 0.111f,
-                0.111f, 0.111f, 0.111f,
-        };
+        int filterWidth = 12;
+        int filterHeight = 12;
+//        kernel 1/6 1/6 1/6
+//        float[] filterMatrix = {
+//                0.111f, 0.111f, 0.111f,
+//                0.111f, 0.111f, 0.111f,
+//                0.111f, 0.111f, 0.111f,
+//        };
+
+        float[] filterMatrix = new float[144];
+        for (int i = 0; i < 144; i++)
+            filterMatrix[i] = 1.0f / 144.0f;
 
         try {
             image = ImageIO.read(input);
-            BufferedImageOp op = new ConvolveOp(new Kernel(filterWidth, filterHeight, filterMatrix));
-            image = op.filter(image, new BufferedImage(image.getWidth(), image.getHeight(), image.getType()));
+            BufferedImageOp op = new ConvolveOp(new Kernel(filterWidth, filterHeight, filterMatrix),
+                    ConvolveOp.EDGE_ZERO_FILL,null);
+            image = op.filter(image,
+                    new BufferedImage(image.getWidth(),
+                            image.getHeight(),
+                            image.getType()));
             File output = writeImageToFile(input, "blurred");
             return Paths.get(output.toString());
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
