@@ -2,6 +2,10 @@ package ivanshyrai.filterapp.web;
 
 import ivanshyrai.filterapp.service.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.net.URLConnection;
 import java.nio.file.Files;
@@ -20,9 +25,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Controller
+@Scope(value = "session", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class HomeController {
     private final String UPLOADED_FOLDER = "/tmp/";
-    private Path path;
+    private Path originPath;
     private Path convertedPath;
     private ImageService imageService;
 
@@ -33,14 +39,15 @@ public class HomeController {
 
     @RequestMapping("/")
     public String home(Model model) {
-        model.addAttribute("uploadedImage",path);
-        model.addAttribute("convertedImage",convertedPath);
+        model.addAttribute("uploadedImage", originPath);
+        model.addAttribute("convertedImage", convertedPath);
         return "homePage";
     }
 
+    @CacheEvict(value = "uploaded", allEntries = true)
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String singleFileUpload(@RequestParam("file") MultipartFile file,
-                                   RedirectAttributes redirectAttributes) throws MultipartException{
+                                   RedirectAttributes redirectAttributes) throws MultipartException {
         if (file.isEmpty() || !isImage(file)) {
             redirectAttributes.addFlashAttribute("message",
                     "Wrong type of file");
@@ -48,61 +55,57 @@ public class HomeController {
         }
         if (file.getSize() >= 5 * 1024 * 1024) {
             redirectAttributes.addFlashAttribute("message",
-                    "File size must be less than 5MB");
+                    "File must be less than 5MB");
             return "redirect:/";
         }
         try {
+            convertedPath = null;
             // Get the file and save it
             byte[] bytes = file.getBytes();
-            path = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
-            Files.write(path, bytes);
+            originPath = Paths.get(UPLOADED_FOLDER + file.getOriginalFilename());
+            Files.write(originPath, bytes);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "redirect:/";
     }
 
+    @Cacheable("uploaded")
     @RequestMapping(value = "/uploaded")
     public void getUploadedPicture(HttpServletResponse response) throws IOException {
-        response.setHeader("Content-Type", URLConnection.guessContentTypeFromName(path.toString()));
-        Files.copy(path, response.getOutputStream());
+        response.setHeader("Content-Type", URLConnection.guessContentTypeFromName(originPath.toString()));
+        Files.copy(originPath, response.getOutputStream());
     }
+
+    @Cacheable("processed")
     @RequestMapping(value = "/converted")
     public void getConvertedImage(HttpServletResponse response) throws IOException {
         response.setHeader("Content-Type", URLConnection.guessContentTypeFromName(convertedPath.toString()));
         Files.copy(convertedPath, response.getOutputStream());
     }
 
-//    @RequestMapping("/grayscale")
-//    public String convertImage() {
-//        convertedPath = imageService.convertToGrayScale(path);
-//        return "redirect:/";
-//    }
-//
-//    @RequestMapping("/binary")
-//    public String binaryImage() {
-//        convertedPath = imageService.convertToBinary(path);
-//        return "redirect:/";
-//    }
-//
-//    @RequestMapping("/facedetect")
-//    public String faceDetect() {
-//        convertedPath = imageService.faceDetect(path);
-//        return "redirect:/";
-//    }
-
-
     @RequestMapping(value = "/convert", method = RequestMethod.POST)
     public String convert(@RequestParam String option) {
-        if (option.equals("grayscale"))
-            convertedPath = imageService.convertToGrayScale(path);
-        else if (option.equals("binary"))
-            convertedPath = imageService.convertToBinary(path);
-        else if (option.equals("facedetect"))
-            convertedPath = imageService.faceDetect(path);
+        File input = originPath.toFile();
+        switch (option) {
+            case "grayscale":
+                convertedPath = imageService.convertToGrayScale(input);
+                break;
+            case "binary":
+                convertedPath = imageService.convertToBinary(input);
+                break;
+            case "faceDetect":
+                convertedPath = imageService.faceDetect(input);
+                break;
+            case "linearBlur":
+                convertedPath = imageService.linearBlur(input);
+                break;
+            case "nonlinearMedian":
+                convertedPath = imageService.nonlinearMedian(input);
+                break;
+        }
         return "redirect:/";
     }
-
 
     private boolean isImage(MultipartFile file) {
         return file.getContentType().startsWith("image");

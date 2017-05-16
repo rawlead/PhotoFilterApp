@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
+import java.awt.image.ConvolveOp;
+import java.awt.image.Kernel;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 @Service
 public class ImageServiceImpl implements ImageService {
@@ -22,8 +26,7 @@ public class ImageServiceImpl implements ImageService {
     private final String UPLOADED_FOLDER = "/tmp/";
 
     @Override
-    public Path convertToGrayScale(Path path) {
-        File input = path.toFile();
+    public Path convertToGrayScale(File input) {
         try {
             image = ImageIO.read(input);
             int width = image.getWidth();
@@ -44,7 +47,8 @@ public class ImageServiceImpl implements ImageService {
                             .getRGB());
                 }
             }
-            return Paths.get(writeImageToFile(input, "grayscale").toString());
+            File output = writeImageToFile(input, "grayscale");
+            return Paths.get(output.toString());
 
         } catch (Exception e) {
         }
@@ -52,64 +56,141 @@ public class ImageServiceImpl implements ImageService {
     }
 
     @Override
-    public Path convertToBinary(Path path) {
-        File input = path.toFile();
+    public Path convertToBinary(File input) {
         try {
             image = ImageIO.read(input);
             int width = image.getWidth();
             int height = image.getHeight();
-            Color color;
+            Color originPixel;
 
-            int basicColor;
+            int binaryPixel;
             for (int i = 0; i < height; i++) {
                 for (int j = 0; j < width; j++) {
-                    color = new Color(image.getRGB(j, i));
-                    basicColor = (color.getRed() < 128 ||
-                            color.getGreen() < 128 ||
-                            color.getBlue() < 128) ? 0 : 255;
+                    originPixel = new Color(image.getRGB(j, i));
+                    binaryPixel = (originPixel.getRed() < 128 ||
+                            originPixel.getGreen() < 128 ||
+                            originPixel.getBlue() < 128) ? 0 : 255;
                     image.setRGB(j, i, new Color(
-                            basicColor, basicColor, basicColor)
+                            binaryPixel, binaryPixel, binaryPixel)
                             .getRGB());
                 }
             }
-            return Paths.get(writeImageToFile(input, "binary").toString());
+            File output = writeImageToFile(input, "binary");
+            return Paths.get(output.toString());
+
         } catch (Exception e) {
         }
         return null;
     }
 
     @Override
-    public Path faceDetect(Path path) {
-        File input = path.toFile();
+    public Path nonlinearMedian(File input) {
         try {
+
             image = ImageIO.read(input);
-            nu.pattern.OpenCV.loadLibrary();
-            CascadeClassifier faceDetector = new CascadeClassifier(getClass().getClassLoader()
-                    .getResource("haarcascade_frontalface_alt.xml").getPath());
-            Mat matrix = Highgui.imread(path.toString());
-            MatOfRect faceDetetions = new MatOfRect();
-            faceDetector.detectMultiScale(matrix, faceDetetions);
+            int width = image.getWidth();
+            int height = image.getHeight();
 
-            for (Rect rect : faceDetetions.toArray()) {
-                Core.rectangle(matrix, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height),
-                        new Scalar(0, 255, 0));
+            Color[] pixel = new Color[9];
+            int[] R = new int[9];
+            int[] G = new int[9];
+            int[] B = new int[9];
+
+            for (int i = 1; i < width - 1; i++) {
+                for (int j = 1; j < height - 1; j++) {
+//                    get every surrounded pixels 9x9 matrix
+                    pixel[0] = new Color(image.getRGB(i - 1, j - 1));
+                    pixel[1] = new Color(image.getRGB(i - 1, j));
+                    pixel[2] = new Color(image.getRGB(i - 1, j + 1));
+                    pixel[3] = new Color(image.getRGB(i, j + 1));
+                    pixel[4] = new Color(image.getRGB(i + 1, j + 1));
+                    pixel[5] = new Color(image.getRGB(i + 1, j));
+                    pixel[6] = new Color(image.getRGB(i + 1, j - 1));
+                    pixel[7] = new Color(image.getRGB(i, j - 1));
+                    pixel[8] = new Color(image.getRGB(i, j));
+
+//                    get each red,green and blue value
+                    for (int k = 0; k < pixel.length; k++) {
+                        R[k] = pixel[k].getRed();
+                        G[k] = pixel[k].getGreen();
+                        B[k] = pixel[k].getBlue();
+                    }
+
+//                    sort each color of a pixel and get middle value - assign to current pixel after
+                    Arrays.sort(R);
+                    Arrays.sort(G);
+                    Arrays.sort(B);
+                    image.setRGB(i,j,new Color(R[4],G[4],B[4]).getRGB());
+                }
             }
-
-            image = convertMatToImage(matrix, input);
-            return Paths.get(writeImageToFile(input, "face-detected").toString());
+            File output = writeImageToFile(input,"median");
+            return Paths.get(output.toString());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+
         return null;
     }
 
-    private File writeImageToFile(File input, String convertedName) {
+    @Override
+    public Path linearBlur(File input) {
+        int filterWidth = 3;
+        int filterHeight = 3;
+        float[] filterMatrix = {
+                0.111f, 0.111f, 0.111f,
+                0.111f, 0.111f, 0.111f,
+                0.111f, 0.111f, 0.111f,
+        };
+
+        try {
+            image = ImageIO.read(input);
+            BufferedImageOp op = new ConvolveOp(new Kernel(filterWidth, filterHeight, filterMatrix));
+            image = op.filter(image, new BufferedImage(image.getWidth(), image.getHeight(), image.getType()));
+            File output = writeImageToFile(input, "blurred");
+            return Paths.get(output.toString());
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+
+    @Override
+    public Path faceDetect(File input) {
+        try {
+            image = ImageIO.read(input);
+            nu.pattern.OpenCV.loadLibrary();
+//             xml file with face detect
+            CascadeClassifier faceDetector = new CascadeClassifier(getClass().getClassLoader()
+                    .getResource("haarcascade_frontalface_alt.xml").getPath());
+            Mat matrix = Highgui.imread(input.toPath().toString());
+            MatOfRect faceDetetions = new MatOfRect();
+            faceDetector.detectMultiScale(matrix, faceDetetions);
+
+            for (Rect rect : faceDetetions.toArray()) {
+                Core.rectangle(
+                        matrix,
+                        new Point(rect.x, rect.y),
+                        new Point(rect.x + rect.width, rect.y + rect.height),
+                        new Scalar(0, 255, 0));
+            }
+
+            image = convertMatToImage(matrix, input);
+            File output = writeImageToFile(input, "face");
+            return Paths.get(output.toString());
+
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+
+    private File writeImageToFile(File input, String endingName) {
         File output = null;
         try {
             String fileExtension = getFileExtension(input.getName());
-            String newName = getPictureName(input, convertedName);
+            String newName = getPictureName(input, endingName);
             output = new File(UPLOADED_FOLDER + newName + "." + fileExtension);
 
             ImageIO.write(image, fileExtension, output);
@@ -120,7 +201,7 @@ public class ImageServiceImpl implements ImageService {
     }
 
 
-    public BufferedImage convertMatToImage(Mat matrix, File input) {
+    private BufferedImage convertMatToImage(Mat matrix, File input) {
         //convert the matrix into a matrix of bytes appropriate for
         //this file extension
         MatOfByte mob = new MatOfByte();
@@ -138,10 +219,10 @@ public class ImageServiceImpl implements ImageService {
     }
 
 
-    private String getPictureName(File input, String convertedName) {
+    private String getPictureName(File input, String additionName) {
         String name = input.getName();
         name = name.substring(0, name.lastIndexOf('.'));
-        return name + "-" + convertedName;
+        return name + "-" + additionName;
     }
 
     private static String getFileExtension(String name) {

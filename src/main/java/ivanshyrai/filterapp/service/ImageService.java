@@ -1,12 +1,17 @@
 package ivanshyrai.filterapp.service;
 
+import java.io.File;
 import java.nio.file.Path;
 
 public interface ImageService {
 
-    Path convertToGrayScale(Path path);
+    Path convertToGrayScale(File file);
 
-    Path convertToBinary(Path path);
+    Path convertToBinary(File file);
 
-    Path faceDetect(Path path);
+    Path faceDetect(File file);
+
+    Path linearBlur(File file);
+
+    Path nonlinearMedian(File input);
 }
