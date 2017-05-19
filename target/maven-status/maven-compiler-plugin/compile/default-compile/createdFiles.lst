@@ -1,8 +1,9 @@
-ivanshyrai/photofilter/web/WebConfig.class
-ivanshyrai/photofilter/service/ImageService.class
-ivanshyrai/photofilter/config/PhotoFilterWebAppInitializer.class
-ivanshyrai/photofilter/config/PropertiesConfig.class
-ivanshyrai/photofilter/config/RootConfig$WebPackege.class
-ivanshyrai/photofilter/web/HomeController.class
-ivanshyrai/photofilter/config/RootConfig.class
-ivanshyrai/photofilter/service/ImageServiceImpl.class
+ivanshyrai/filterapp/service/ImageService.class
+ivanshyrai/filterapp/config/PhotoFilterWebAppInitializer.class
+ivanshyrai/filterapp/config/RootConfig.class
+ivanshyrai/filterapp/web/WebConfig.class
+ivanshyrai/filterapp/web/HomeController.class
+ivanshyrai/filterapp/config/PropertiesConfig.class
+ivanshyrai/filterapp/service/ImageServiceImpl.class
+ivanshyrai/filterapp/config/CacheConfiguration.class
+ivanshyrai/filterapp/config/RootConfig$WebPackege.class

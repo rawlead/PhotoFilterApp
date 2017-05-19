@@ -1,7 +1,8 @@
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/service/ImageServiceImpl.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/web/WebConfig.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/config/RootConfig.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/service/ImageService.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/config/PhotoFilterWebAppInitializer.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/web/HomeController.java
-/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/photofilter/config/PropertiesConfig.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/config/PropertiesConfig.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/config/RootConfig.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/config/PhotoFilterWebAppInitializer.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/web/HomeController.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/service/ImageService.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/service/ImageServiceImpl.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/config/CacheConfiguration.java
+/Users/Ivan/Projects/Spring/PhotoFilter/src/main/java/ivanshyrai/filterapp/web/WebConfig.java
